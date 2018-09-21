@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<script>
+// BEGIN (write your solution here)
+const isPowerOfThree = (num)=>{
+  if (num===1){
+    return true;
+  }else if(num<1){
+    return false;
+  }
+  num=num/3;
+  return isPowerOfThree(num);
+}
+let a=0;
+prompt(a);
+alert(isPowerOfThree(a));
+// END
+</script>
+КОД:
+const isPowerOfThree = (num)=>{
+  if (num===1){
+    return true;
+  }else if(num<1){
+    return false;
+  }
+  num=num/3;
+  return isPowerOfThree(num);
+}
+let a=0;
+prompt(a);
+alert(isPowerOfThree(a));
+</body>
+</html>
