@@ -8,6 +8,7 @@ body {
   padding-bottom: 32px;
 }
 #box2 {
+    float: left; 
     display: inline-block;
     background-color: #39CCCC;
     width: auto;
@@ -20,6 +21,7 @@ body {
     margin-top: 15px;
   }
   #box3 {
+    float: right;
     display: inline-block;
     background-color:rgb(61, 59, 226);
     width: auto;
