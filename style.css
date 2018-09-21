@@ -7,6 +7,30 @@ body {
   padding-top: 32px;
   padding-bottom: 32px;
 }
+#box2 {
+    display: inline-block;
+    background-color: #39CCCC;
+    width: auto;
+    height: auto;
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-right: 10px;
+    border-top: 8px solid #001f3f;
+    margin-left: 15px;
+    margin-top: 15px;
+  }
+  #box3 {
+    display: inline-block;
+    background-color:rgb(19, 16, 230);
+    width: auto;
+    height: auto;
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-right: 10px;
+    border-top: 8px solid #001f3f;
+    margin-left: 15px;
+    margin-top: 15px;
+  }
 #main{
   font-family: Georgia;
   font-size: 14px;
@@ -40,6 +64,14 @@ h3{
     font-size:20px;
     margin-bottom:0px;
     margin-top: 5px;
+}
+h4{
+    font-weight: 400;
+    font-size:16px;
+    margin-bottom:8px;
+    margin-top: 1px;
+    border-bottom:2px solid rgb(0, 0, 0);
+    font-weight: bold
 }
 p{
     font-size:15px;
