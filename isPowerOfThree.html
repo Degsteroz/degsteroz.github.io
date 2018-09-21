@@ -2,7 +2,24 @@
 <html>
 <body>
 
-<script>
+
+КОД:
+<p>const isPowerOfThree = (num)=>{
+ <p> if (num===1){
+    <p>return true;
+  <p>}else if(num<1){
+  <p>  return false;
+  <p>}
+ <p> num=num/3;
+ <p> return isPowerOfThree(num);
+<p>}
+<p>let a=0;
+<p>a=prompt(a);
+<p>alert(isPowerOfThree(a));
+  
+  
+  
+  <script>
 // BEGIN (write your solution here)
 const isPowerOfThree = (num)=>{
   if (num===1){
@@ -18,18 +35,5 @@ a=prompt(a);
 alert(isPowerOfThree(a));
 // END
 </script>
-КОД:
-<p>const isPowerOfThree = (num)=>{
- <p> if (num===1){
-    <p>return true;
-  <p>}else if(num<1){
-  <p>  return false;
-  <p>}
- <p> num=num/3;
- <p> return isPowerOfThree(num);
-<p>}
-<p>let a=0;
-<p>a=prompt(a);
-<p>alert(isPowerOfThree(a));
 </body>
 </html>
