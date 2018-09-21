@@ -10,21 +10,26 @@
     </h3>
 </div>
 
-КОД:
-<p>const isPowerOfThree = (num)=>{
- <p> if (num===1){
-    <p>return true;
- <p>}else if(num<1){</p>
-  <p>  return false;
-  <p>}
- <p> num=num/3;
- <p> return isPowerOfThree(num);
-<p>}
-<p>let a=0;
-<p>a=prompt(a);
-<p>alert(isPowerOfThree(a));
-  
-  
+<div id = "box2" style="float: left; width: auto;">
+<b><h4>Мой код</b><br/></h4>
+const isPowerOfThree = (num)=&gt;{<br/>  if (num===1){<br/>   
+ return true;<br/>  
+}else if(num&lt;1){<br/>    
+    return false;<br/>  
+}<br/>  num=num/3;<br/>  
+return isPowerOfThree(num);<br/>}
+<br/>export default isPowerOfThree;
+</div>
+
+<div id ="box3">
+        <h4>Код преподавателя <br/></h4>
+        export default (num) =&gt; {<br/>
+            let current = 1;<br/>
+            while (current '&lt;' num) {<br/>
+            current *= 3;}     <br/>
+        return current === num;<br/>}
+  </div>
+
   <script>
 // BEGIN (write your solution here)
 const isPowerOfThree = (num)=>{
@@ -41,6 +46,6 @@ a=prompt(a);
 alert(isPowerOfThree(a));
 // END
 </script>
-<div id="footer"><a href="list.html">Назад</a></div>
+<div id="footer"><a href="list.html">Назад</a></div><br/>
 </body>
 </html>
