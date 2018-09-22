@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <link href="style.css" rel="stylesheet">
+ </head>
+<body>
+        <div id="header">
+        <h1>Палиндром или нет</h1>
+<h3>При вводе слова программа определяет является ли слово палиндром
+    </h3>
+</div>
+
+<div id = "box2">
+<b><h4>Мой код</b><br/></h4>
+const isPalindrome =(str)=&gt;{<br/>
+let last=str.length-1;<br/>
+let first = 0;<br/>
+if (last+1&lt;2) return true;<br/>
+return str[first]===str[last]? <br/>
+isPalindrome(str.substr(first+1, last-1)):false;<br/>
+}<br/>
+export default isPalindrome;
+</div>
+
+<div id ="box3">
+        <h4>Код преподавателя <br/></h4>
+        const isPalindrome = (string) =&gt; {<br/>  
+        if (string.length &lt;= 1) {<br/>    
+        return true;<br/>  
+        }<br/>
+        const firstSymbol = string[0];<br/>
+        const lastSymbol = string[string.length - 1];<br/>
+        if (firstSymbol !== lastSymbol) {<br/>
+            return false;<br/>  
+        }<br/>
+        <br/>  
+        const stringWithoutFirstAndLastSymbols =<br/>
+        string.substr(1, string.length - 2);<br/>
+        <br/> 
+        return isPalindrome(stringWithoutFirstAndLastSymbols);<br/>};
+        <br/>export default isPalindrome;
+  </div>
+
+  <script>
+// BEGIN (write your solution here)
+const isPalindrome =(str)=>{
+  let last=str.length-1;
+  let first = 0;
+  if (last+1<2) return 'Палиндром';
+  return str[first]===str[last]? isPalindrome(str.substr(first+1, last-1)):'Не палиндром';
+}
+alert('Введите слово для проверки');
+let word ='';
+word =prompt(word);
+alert(isPalindrome(word));
+// END
+</script>
+<div id="footer"><a href="list.html">Назад</a></div><br/>
+</body>
+</html>
