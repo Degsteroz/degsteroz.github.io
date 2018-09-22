@@ -47,7 +47,7 @@ const isPalindrome =(str)=>{
   let last=str.length-1;
   let first = 0;
   if (last+1<2) return 'Палиндром';
-  return str[first]===str[last]? isPalindrome(str.substr(first+1, last-1)):'Не палиндром';
+  return str[first].toLowerCase()===str[last]? isPalindrome(str.substr(first+1, last-1)):'Не палиндром';
 }
 alert('Введите слово для проверки');
 let word ='';
