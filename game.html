@@ -1,0 +1,117 @@
+<html>
+    <title>
+        GAME ver.01
+    </title>
+    <body>
+        <script>
+            //Получаем имя игрока
+            const name = () => {
+            let playerName = '';
+            playerName = prompt(playerName);
+            if (playerName === ''||playerName === null){ //проверка на пустое поле или null
+                playerName = 'Anonymous';
+            }
+            return playerName;
+            }
+
+            const level1 = () =>{
+                alert('Какое число пропущено? : 1, 2, ?, 4, 5');
+                let playerNum = prompt('Вставьте число', '?');
+                if (playerNum == 3) { //Проверка на правильность 
+                    alert('Верно!');
+                    return 1;
+                } else {
+                    alert('Неверно!');
+                    return 0;
+                }
+            }
+
+             const level2 = () =>{
+                alert('Какое число пропущено? : 2, 4, ?, 16, 32');
+                let playerNum = prompt('Вставьте число', '?');
+                if (playerNum == 8) { //Проверка на правильность 
+                    alert('Верно!');
+                    return 1;
+                } else {
+                    alert('Неверно!');
+                    return 0;
+                }
+            }
+
+            const level3 = () =>{
+                alert('Какое число пропущено? : 1, 1, ?, 6, 24');
+                let playerNum = prompt('Вставьте число', '?');
+                if (playerNum == 2) { //Проверка на правильность 
+                    alert('Верно!');
+                    return 1;
+                } else {
+                    alert('Неверно!');
+                    return 0;
+                }
+            }
+
+            const level4 = () =>{
+                alert('Какое число пропущено? : 1, 3, ?, 27, 81');
+                let playerNum = prompt('Вставьте число', '?');
+                if (playerNum == 9) { //Проверка на правильность 
+                    alert('Верно!');
+                    return 1;
+                } else {
+                    alert('Неверно!');
+                    return 0;
+                }
+            }
+
+            const level5 = () =>{
+                alert('Какое число пропущено? : 1, 4, ?, 256, 3125');
+                let playerNum = prompt('Вставьте число', '?');
+                if (playerNum == 27) { //Проверка на правильность 
+                    alert('Верно!');
+                    return 1;
+                } else {
+                    alert('Неверно!');
+                    return 0;
+                }
+            }
+
+            const randomNum = () =>{ //Получение случайного числа
+                return Math.floor(Math.random() * (4)) + 2;
+            }
+
+        alert('Как тебя зовут?'); //Запрос на ввод имени
+        const playerName = name();
+        alert(`Привет, ${playerName}!`); //Приветствуем игрока
+        let gameConfirm = confirm(`${playerName}, хочешь сыграть в игру?`); //Поддтверждение игры
+        if (gameConfirm === false){
+            alert(`Пока, ${playerName}`);//Выход в случае отказа
+        } else {
+            let rightCount = 0;
+            alert('Начнём с простого');
+            rightCount+=level1();
+            for(let i = 0; i<4; i++){
+               let levelNum = randomNum();
+            switch(levelNum){
+                case 2: {
+                    rightCount+=level2();
+                    break;
+                }
+                case 3: {
+                    rightCount+=level3();
+                    break;
+                }
+                case 4: {
+                    rightCount+=level4();
+                    break;
+                }
+                case 5: {
+                    rightCount+=level5();
+                    break;
+                }
+            }
+            }
+            alert(`Число правильных ответов: ${rightCount}`);
+      }
+
+        </script>
+    </body>
+</html>
