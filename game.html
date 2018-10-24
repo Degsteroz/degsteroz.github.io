@@ -1,121 +1,133 @@
 <html>
-     <head>
-  <link href="style.css" rel="stylesheet">
- </head>
-    <title>
-        GAME ver.01
+    <title>GAME ver.01
     </title>
     <body>
         <script>
-            //Получаем имя игрока
-            const name = () => {
-            let playerName = '';
-            playerName = prompt(playerName);
-            if (playerName === ''||playerName === null){ //проверка на пустое поле или null
-                playerName = 'Anonymous';
-            }
-            return playerName;
+
+            const resultMatching = (playerNum,currentNum)=>{
+                //Проверка на соответствие правильному решению. 
+                if (playerNum == currentNum) {
+                    alert('Верно!');
+                    return 1;
+                }
+                alert('Неверно!');
+                return 0;
             }
 
-            const level1 = () =>{
+            const getNumLine = ()=>{
+                //Получаем строку с уникальными номерами для вызова функции с соот-щим номером
+                let str = '';
+                for (let i = 0; i < 4; i++) {
+                    let numb = null;
+                    while (numb == str[0] || numb == str[1] || numb == str[2] || numb == str[3]) {
+                        numb = (Math.floor(Math.random() * (4)) + 2);
+                    }
+                    str += numb;
+                }
+                return str;
+            }
+
+            const levelChoice = (type)=>{
+                //Выбор уровня. Уровень получаем из строки
+                let level = {
+                    '2': level2,
+                    '3': level3,
+                    '4': level4,
+                    '5': level5,
+                }
+                return (level[type]);
+            }
+
+            const getFunction = (str)=>{
+                //Запуск уровня из символа строки.  
+                // Max. Добавил сюда счетчик `rightCount`, который, после выполнения всех заданий вернет общее кол-во
+                let rightCount = 0
+
+                for (let i = 0; i < str.length; i++) {
+                    console.log(str[i]);
+
+                    // levelChoice(str[i]);
+                    // Max. Смотри, функция `levelChoice`, возвращает саму функцию, ее тело, а вызова ее не происходит,
+                    // поэтому задание и не запускается. Смотри исправление ниже.
+                    rightCount += levelChoice(str[i])();
+                }
+
+                return rightCount
+            }
+
+            //Получаем имя игрока
+            const getName = ()=>{
+                let playerName = '';
+                playerName = prompt(playerName);
+                if (playerName === '' || playerName === null) {
+                    //проверка на пустое поле или null
+                    playerName = 'Anonymous';
+                }
+                return playerName;
+            }
+
+            const level1 = ()=>{
                 alert('Какое число пропущено? : 1, 2, ?, 4, 5');
                 let playerNum = prompt('Вставьте число', '?');
-                if (playerNum == 3) { //Проверка на правильность 
-                    alert('Верно!');
-                    return 1;
-                } else {
-                    alert('Неверно!');
-                    return 0;
-                }
+                // Max. Функция не возвращала, не было `return`
+                return resultMatching(playerNum, 3);
             }
 
-             const level2 = () =>{
+            const level2 = ()=>{
                 alert('Какое число пропущено? : 2, 4, ?, 16, 32');
                 let playerNum = prompt('Вставьте число', '?');
-                if (playerNum == 8) { //Проверка на правильность 
-                    alert('Верно!');
-                    return 1;
-                } else {
-                    alert('Неверно!');
-                    return 0;
-                }
+                // Max. Функция не возвращала, не было `return`     
+                return resultMatching(playerNum, 8);
             }
 
-            const level3 = () =>{
+            const level3 = ()=>{
                 alert('Какое число пропущено? : 1, 1, ?, 6, 24');
                 let playerNum = prompt('Вставьте число', '?');
-                if (playerNum == 2) { //Проверка на правильность 
-                    alert('Верно!');
-                    return 1;
-                } else {
-                    alert('Неверно!');
-                    return 0;
-                }
+                // Max. Функция не возвращала, не было `return`                
+                return resultMatching(playerNum, 2);
             }
 
-            const level4 = () =>{
+            const level4 = ()=>{
                 alert('Какое число пропущено? : 1, 3, ?, 27, 81');
                 let playerNum = prompt('Вставьте число', '?');
-                if (playerNum == 9) { //Проверка на правильность 
-                    alert('Верно!');
-                    return 1;
-                } else {
-                    alert('Неверно!');
-                    return 0;
-                }
+                // Max. Функция не возвращала, не было `return`
+                return resultMatching(playerNum, 9);
             }
 
-            const level5 = () =>{
+            const level5 = ()=>{
                 alert('Какое число пропущено? : 1, 4, ?, 256, 3125');
                 let playerNum = prompt('Вставьте число', '?');
-                if (playerNum == 27) { //Проверка на правильность 
-                    alert('Верно!');
-                    return 1;
-                } else {
-                    alert('Неверно!');
-                    return 0;
-                }
+
+                // return resultMatching(playerName, 27);
+                // Max. Передал в функицю `playerName`, вместо `playerNum` + функция ничего не возвращала
+                return resultMatching(playerNum, 27);
             }
 
-            const randomNum = () =>{ //Получение случайного числа
+            const randomNum = ()=>{
+                //Получение числа из промежутка
                 return Math.floor(Math.random() * (4)) + 2;
             }
 
-        alert('Как тебя зовут?'); //Запрос на ввод имени
-        const playerName = name();
+            const game = ()=>{
+                alert('Как тебя зовут?'); //Запрос на ввод имени
+        const playerName = getName();
         alert(`Привет, ${playerName}!`); //Приветствуем игрока
         let gameConfirm = confirm(`${playerName}, хочешь сыграть в игру?`); //Поддтверждение игры
         if (gameConfirm === false){
-            alert(`Пока, ${playerName}`);//Выход в случае отказа
-        } else {
-            let rightCount = 0;
-            alert('Начнём с простого');
-            rightCount+=level1();
-            for(let i = 0; i<4; i++){
-               let levelNum = randomNum();
-            switch(levelNum){
-                case 2: {
-                    rightCount+=level2();
-                    break;
-                }
-                case 3: {
-                    rightCount+=level3();
-                    break;
-                }
-                case 4: {
-                    rightCount+=level4();
-                    break;
-                }
-                case 5: {
-                    rightCount+=level5();
-                    break;
-                }
-              }
-            }
-            alert(`Число правильных ответов: ${rightCount}`);
-      }
+          return alert(`Пока, ${playerName}`);//Выход в случае отказа
+        }
+                let rightCount = 0;
+                alert('Начнём с простого');
+                rightCount += level1();
+                let line = String(getNumLine());
+                console.log(line);
+                rightCount += getFunction(line);
+                //Запуск функций в соотвествии с Символами строки из getNumLine.
 
+                alert(`Число правильных ответов: ${rightCount}`);
+            }
+
+            game();
         </script>
-        <div id="footer"><a href="list.html">Назад</a></div><br/>
     </body>
 </html>
