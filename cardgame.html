@@ -1,0 +1,56 @@
+<html>
+    <title>GAME ver.01
+    </title>
+    <body>
+        <script>
+            const getName = () =>{
+                let playerName = '';
+                alert('Введи имя своего персонажа!');
+                playerName = prompt(playerName);
+                return playerName === null||playerName ===''? 'Anonymous':playerName;
+            }
+            const getDamage = () => Math.floor(Math.random()*(5-1)+1);
+            const game = () =>{
+                let firstPlayer = {
+                    name: '',
+                    health: 10
+                }
+
+                 let secondPlayer = {
+                    name: '',
+                    health: 10
+                }
+                firstPlayer.name = getName();
+                secondPlayer.name = getName();
+                
+                alert(`${firstPlayer.name} вступает в бой против игрока по имени ${secondPlayer.name}`);
+                const iter = (firstPlayer, secondPlayer, order) => {
+                    if(order === 1) {
+                    if(firstPlayer.health <= 0) {
+                        let log = (`${firstPlayer.name} отдал концы! Победил ${secondPlayer.name}!`);
+                    return log;
+                }
+                        let damage = getDamage();
+                        firstPlayer.health = firstPlayer.health - damage;
+                        alert(`${firstPlayer.name} получил ${damage} урона!`);
+                        return iter(firstPlayer, secondPlayer, 2);
+                    }
+                    if(order === 2){
+                    if(secondPlayer.health <= 0){
+                        let log = (`${secondPlayer.name} отдал концы! Победил ${firstPlayer.name}!`);
+                    return log;}
+                        let damage = getDamage();
+                        secondPlayer.health = secondPlayer.health - damage;
+                        alert(`${secondPlayer.name} получил ${damage} урона!`);
+                        return iter(firstPlayer, secondPlayer, 1);
+                    }
+
+
+                } 
+                alert(iter(firstPlayer, secondPlayer, 1));
+            }
+            game();
+             
+             </script>
+    </body>
+</html>
