@@ -22,7 +22,7 @@
                 }
                 firstPlayer.name = getName();
                 secondPlayer.name = getName();
-                
+
                 alert(`${firstPlayer.name} вступает в бой против игрока по имени ${secondPlayer.name}`);
                 const iter = (firstPlayer, secondPlayer, order) => {
                     if(order === 1) {
@@ -31,7 +31,7 @@
                     return log;
                 }
                         let damage = getDamage();
-                        firstPlayer.health = firstPlayer.health - damage;
+                        secondPlayer.health = secondPlayer.health - damage;
                         alert(`${firstPlayer.name} получил ${damage} урона!`);
                         return iter(firstPlayer, secondPlayer, 2);
                     }
@@ -40,7 +40,7 @@
                         let log = (`${secondPlayer.name} отдал концы! Победил ${firstPlayer.name}!`);
                     return log;}
                         let damage = getDamage();
-                        secondPlayer.health = secondPlayer.health - damage;
+                        firstPlayer.health = firstPlayer.health - damage;
                         alert(`${secondPlayer.name} получил ${damage} урона!`);
                         return iter(firstPlayer, secondPlayer, 1);
                     }
