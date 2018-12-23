@@ -23,25 +23,28 @@
                 firstPlayer.name = getName();
                 secondPlayer.name = getName();
 
-                alert(`${firstPlayer.name} вступает в бой против игрока по имени ${secondPlayer.name}`);
+                alert(`Игрок ${firstPlayer.name} вступает в бой против игрока по имени ${secondPlayer.name}`);
                 const iter = (firstPlayer, secondPlayer, order) => {
                     if(order === 1) {
                     if(firstPlayer.health <= 0) {
-                        let log = (`${firstPlayer.name} отдал концы! Победил ${secondPlayer.name}!`);
+                        let log = (`Игрок ${firstPlayer.name} отдал концы! Победил ${secondPlayer.name}!`);
                     return log;
                 }
+                        alert(`Игрок ${firstPlayer.name} атакует`)
                         let damage = getDamage();
                         secondPlayer.health = secondPlayer.health - damage;
-                        alert(`${firstPlayer.name} получил ${damage} урона!`);
+                        alert(`Игрок ${secondPlayer.name} получил ${damage} урона и у него осталось ${secondPlayer.health >= 0 ? secondPlayer.health:0} жизней!`);
                         return iter(firstPlayer, secondPlayer, 2);
                     }
                     if(order === 2){
                     if(secondPlayer.health <= 0){
-                        let log = (`${secondPlayer.name} отдал концы! Победил ${firstPlayer.name}!`);
-                    return log;}
+                        let log = (`Игрок ${secondPlayer.name} отдал концы! Победил ${firstPlayer.name}!`);
+                    return log;
+                }
+                    alert(`Игрок ${secondPlayer.name} атакует`)
                         let damage = getDamage();
                         firstPlayer.health = firstPlayer.health - damage;
-                        alert(`${secondPlayer.name} получил ${damage} урона!`);
+                        alert(`Игрок ${firstPlayer.name} получил ${damage} урона и у него осталось ${firstPlayer.health >= 0 ? firstPlayer.health:0} жизней!`);
                         return iter(firstPlayer, secondPlayer, 1);
                     }
 
